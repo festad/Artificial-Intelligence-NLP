@@ -66,7 +66,7 @@ def write_encoded_vectors_for_any_topic(encoding_type: str):
         return
 
 
-def compute_centroids(encoding_type: str):
+def write_after_compute_centroids(encoding_type: str):
     '''
     Depending on which of the three different encodings,
     a different topic_centroid is computed.

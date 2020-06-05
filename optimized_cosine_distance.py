@@ -1,3 +1,23 @@
+'''
+The function in this file assumes that you
+already have the files:
+    idf.json
+    inv_tfidf.json
+If you don't have them, use immediately
+    'indexer.py'
+with which you can create these and other
+important files for other classifiers.
+Note that the creation of this two files
+requires the previous creation of another,
+called 'inverted_index.json'.
+Also note that when this function
+is used inside 'revengai.py'
+it requires the file 'document_topic_dictionary.json'
+which is not conceptually related to this function
+but it is needed to show which is the topic of
+the document whose tfidf vector is closest to the query.
+'''
+
 import json
 from math import sqrt, log
 from typing import Dict
@@ -18,7 +38,7 @@ def optimized_improved_cosine_distance_tfidf(qry: str) -> Dict[str, float]:
     'inv_tf_idf' is a dictionary whose key is a document id and the corresponding value
     is another dictionary whose key is a word and the value is
     the tf*idf value for that
-    particular word in that document
+    particular word in that document.
     '''
     with open('idf.json', 'r') as f:
         idf = json.load(f)

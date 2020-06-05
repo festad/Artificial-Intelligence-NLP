@@ -1,3 +1,16 @@
+'''
+The function in this file assumes that you
+already have the files:
+    topic_inverted_index.json
+    topic_nonverted_index.json
+    topics_frequencies.json
+    dictionary.json
+If you don't have them, use immediately
+    'indexer.py'
+with which you can create these and other
+important files for other classifiers.
+'''
+
 import json
 from math import log
 from typing import Dict
@@ -7,7 +20,7 @@ from preprocesser import preprocessing
 
 def naive_bayes(query: str) -> Dict[str, float]:
     '''
-    'topic_inverted_index stores a dictionary
+    'topic_inverted_index' stores a dictionary
     whose key is a word and the value is another
     dictionary whose key is a topic and the value
     is the number of times the word appears in that topic.

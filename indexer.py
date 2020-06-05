@@ -2,7 +2,9 @@
 This file is of extreme importance,
 it allows you to create the files used as resources
 from the classifiers:
-the suggestion is to open up a python console,
+    naive bayes,
+    optimized cosine distance.
+The suggestion is to open up a python console,
 import this file and call the functions
 that start with 'write' manually.
 The bad news is that some of this functions
@@ -13,6 +15,27 @@ you won't have problem, and even if you had, you
 would get an error message like
 'FileNotFoundError' and you'll easily
 figure out what is the dependency you are missing.
+Attention:
+this file provides NO service for
+    Rocchio
+    Cosine distance (that can use
+        one hot / bag of words encoding
+        term frequency         encoding
+        tfidf                  encoding),
+    Neural network
+    Rocchio
+if you want to use Rocchio's classifier,
+the needed files are not created by function inside
+this file, you'll have to look inside 'rocchio.py';
+the same goes for neural newtork classifier.
+It seems strange that this file provide no service
+for Cosine distance because actually some functions
+that write idf and tfidf encodings, that's because
+they will be used (only) by optimized cosine distance classifier.
+The files to be used for cosine distance classifier are
+    'document_similarity_computer.py'
+    'encoder.py',
+the first one used the vectors written by the second one.
 '''
 
 
@@ -142,16 +165,22 @@ def write_topics_frequencies():
     with open('topics_dictionary.json', 'r') as f:
         topics_dictionary = json.load(f)
     total = sum(topics_dictionary.values())
+    i = 1
     for t in topics_dictionary:
         topics_frequencies[t] = topics_dictionary[t] / total
+        print(i)
+        i += 1
     with open('topics_frequencies.json', 'w') as f:
         json.dump(topics_frequencies, f, indent=4, sort_keys=True)
 
 
 def _generate_idf(inverted_index: Dict[str, Dict[str, int]], number_documents: int) -> Dict[str, float]:
     idf = {}
+    i = 1
     for w in inverted_index:
         idf[w] = log(number_documents / len(inverted_index[w]))
+        print(i)
+        i += 1
     return idf
 
 
@@ -189,15 +218,24 @@ def write_tfidf():
 def _generate_inverse_tfidf(inverted_index: Dict[str, Dict[str, int]], idf: Dict[str, float]) \
         -> Dict[str, Dict[str, float]]:
     inv_tfidf = {}
+    i = 1
     for w in inverted_index:
+        print(i)
+        i += 1
         print(w)
         for doc in inverted_index[w]:
             inv_tfidf[doc] = {}
+    i = 1
     for w in inverted_index:
+        print(i)
+        i += 1
         print(w)
         for doc in inverted_index[w]:
             inv_tfidf[doc][w] = inverted_index[w][doc]
+    i = 1
     for doc in inv_tfidf:
+        print(i)
+        i += 1
         print(doc)
         for w in inv_tfidf[doc]:
             inv_tfidf[doc][w] = log(1 + inv_tfidf[doc][w]) * idf[w]

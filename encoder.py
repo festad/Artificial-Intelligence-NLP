@@ -1,3 +1,22 @@
+'''
+The function in this file assumes that you
+already have the files:
+    dictionary.json
+    idf.json
+for cosine distance,
+and also
+    topics_dictionary.json
+to calculate the target vectors (used to compute
+the error of the result from the last layer
+of the neural network), vectors that have the same dimension
+as the number of the different topics and are made of 1 (when
+the corresponding topic belongs to that particular document) or 0.
+If you don't have them, use immediately
+    'indexer.py'
+with which you can create these and other
+important files for other classifiers.
+'''
+
 import json
 from math import log
 from typing import List, Dict
