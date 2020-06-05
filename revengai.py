@@ -42,8 +42,6 @@ def driver():
             print('1 -> hot encoding')
             print('2 -> term frequency')
             print('3 -> tfidf')
-            print('4 -> fast')
-            print('-> ')
             encoding = int(input())
             if encoding == 1:
                 encoding_type = 'hot_encoding'
@@ -51,7 +49,12 @@ def driver():
                 encoding_type = 'term_frequency'
             elif encoding == 3:
                 encoding_type = 'tfidf'
-            elif encoding == 4:
+
+        if algorithm == 2:
+            print('optimized: [Y/N]')
+            print('-> ')
+            flag = str(input()).lower()
+            if flag == 'y':
                 fast = True
 
         print("")

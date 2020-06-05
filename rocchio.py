@@ -1,5 +1,16 @@
 '''
 This one manages Rocchio classifier.
+The function in this file assumes that you
+already have all the vectors of all the documents
+for all the 3 different categories (one hot encoding, term frequency and tfidf).
+If you don't have them, you can create them using 'encoder.py',
+in particular the 'write_encodings' function.
+Once you have all the vectors inside 'encoded/'
+use
+    'write_encoded_vectors_for_all_topics'
+that is in this file, then use
+    'write_all_centroids'
+that is in this file as well.
 '''
 
 
@@ -12,13 +23,15 @@ from navigator import _generator_of_file_names_in_dir
 from preprocesser import preprocessing
 
 
-def write_encoded_vectors_for_any_topic(encoding_type: str):
+def _write_encoded_vectors_for_any_topic(encoding_type: str):
     with open('document_topic_dictionary.json', 'r') as f:
         document_topic_dictionary = json.load(f)
     topic_vectors = {}
     j = 1
     if encoding_type == 'hot_encoding':
         for file in _generator_of_file_names_in_dir('encoded/one_hot'):
+            if str(file) == 'empty.txt':
+                continue
             with open(f'encoded/one_hot/{file}', 'r') as f:
                 hot_encoding_vector = json.load(f)
             newid = file.split('.json')[0]
@@ -35,6 +48,8 @@ def write_encoded_vectors_for_any_topic(encoding_type: str):
 
     elif encoding_type == 'term_frequency':
         for file in _generator_of_file_names_in_dir('encoded/term_frequency'):
+            if str(file) == 'empty.txt':
+                continue
             with open(f'encoded/term_frequency/{file}', 'r') as f:
                 term_frequency_vector = json.load(f)
             newid = file.split('.json')[0]
@@ -51,6 +66,8 @@ def write_encoded_vectors_for_any_topic(encoding_type: str):
 
     elif encoding_type == 'tfidf':
         for file in _generator_of_file_names_in_dir('encoded/tf_idf'):
+            if str(file) == 'empty.txt':
+                continue
             with open(f'encoded/tf_idf/{file}', 'r') as f:
                 tfidf_vector = json.load(f)
             newid = file.split('.json')[0]
@@ -66,7 +83,16 @@ def write_encoded_vectors_for_any_topic(encoding_type: str):
         return
 
 
-def write_after_compute_centroids(encoding_type: str):
+def write_encoded_vectors_for_all_topics():
+    '''
+    Will take a while
+    '''
+    _write_encoded_vectors_for_any_topic('hot_encoding')
+    _write_encoded_vectors_for_any_topic('term_frequency')
+    _write_encoded_vectors_for_any_topic('tfidf')
+
+
+def _write_after_compute_centroids(encoding_type: str):
     '''
     Depending on which of the three different encodings,
     a different topic_centroid is computed.
@@ -98,6 +124,12 @@ def write_after_compute_centroids(encoding_type: str):
             topic_centroid[t] = centroid(topic_tfidf_vector[t])
         with open('topic_tfidf_centroid.json', 'w') as f:
             json.dump(topic_centroid, f)
+
+
+def write_all_centroids():
+    _write_after_compute_centroids('hot_encoding')
+    _write_after_compute_centroids('term_frequency')
+    _write_after_compute_centroids('tfidf')
 
 
 def rocchio(query: str, encoding_type: str) -> Dict[str, float]:

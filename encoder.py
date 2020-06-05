@@ -85,6 +85,12 @@ def load_tfidf_vector(tfidf, reut):
 
 
 def write_encodings():
+    '''
+    Make sure to have the directory
+        encoded/one_hot
+        encoded/term_frequency
+        encoded/tf_idf
+    '''
     with open('dictionary.json', 'r') as f:
         dictionary = json.load(f)
     with open('idf.json', 'r') as f:
