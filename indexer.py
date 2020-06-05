@@ -1,3 +1,21 @@
+'''
+This file is of extreme importante,
+it allows you to create the files used as resources
+from the classifiers:
+the suggestion is to open up a python console,
+import this file and call the functions
+that start with 'write' manually.
+The bad news is that some of this functions
+write files using others,
+the good news is that if you follow
+the order in which the functions are written in this file
+you won't have problem, and even if you had, you
+would get an error message like
+'FileNotFoundError' and you'll easily
+figure out what is the dependency you are missing.
+'''
+
+
 import json
 from math import log
 from typing import List, Dict
@@ -19,7 +37,7 @@ def _update_inverted_index(docID: str, words: List[str],
             inverted_index[w][docID] = 1
 
 
-def _write_inverted_index():
+def write_inverted_index():
     inverted_index = {}
     counter = 1
     for reuter in retrieve_all_relevant_reuters():
@@ -39,7 +57,7 @@ def _update_dictionary(words: List[str], dictionary: Dict[str, int]):
             dictionary[w] = 1
 
 
-def _write_dictionary():
+def write_dictionary():
     dictionary = {}
     counter = 1
     for reuter in retrieve_all_relevant_reuters():
@@ -64,7 +82,7 @@ def _update_topic_inverted_index(topics: List[str], words: List[str], topic_inve
                 topic_inverted_index[w][topic] = 1
 
 
-def _write_topic_inverted_index():
+def write_topic_inverted_index():
     topic_inverted_index = {}
     counter = 1
     for reuter in retrieve_all_relevant_reuters():
@@ -88,7 +106,7 @@ def _update_topic_nonverted_index(topics: List[str], words: List[str],
                 topic_nonverted_index[topic][w] = 1
 
 
-def _write_topic_nonverted_index():
+def write_topic_nonverted_index():
     topic_nonverted_index = {}
     counter = 1
     for reuter in retrieve_all_relevant_reuters():
@@ -108,7 +126,7 @@ def _update_topics_dictionary(topics: List[str], topics_dictionary: Dict[str, in
             topics_dictionary[topic] = 1
 
 
-def _write_topics_dictionary():
+def write_topics_dictionary():
     topics_dictionary = {}
     counter = 1
     for reuter in retrieve_all_relevant_reuters():
@@ -119,7 +137,7 @@ def _write_topics_dictionary():
         json.dump(topics_dictionary, f, indent=4, sort_keys=True)
 
 
-def _write_topics_frequencies():
+def write_topics_frequencies():
     topics_frequencies = {}
     with open('topics_dictionary.json', 'r') as f:
         topics_dictionary = json.load(f)
@@ -137,7 +155,7 @@ def _generate_idf(inverted_index: Dict[str, Dict[str, int]], number_documents: i
     return idf
 
 
-def _write_idf():
+def write_idf():
     with open('inverted_index.json', 'r') as f:
         inverted_index = json.load(f)
     number_documents = count_all_relevant_reuters()
@@ -158,7 +176,7 @@ def _generate_tfidf(inverted_index: Dict[str, Dict[str, int]], idf: Dict[str, fl
     return tfidf
 
 
-def _write_tfidf():
+def write_tfidf():
     with open('inverted_index.json', 'r') as f:
         inverted_index = json.load(f)
     with open('idf.json', 'r') as f:
@@ -186,7 +204,7 @@ def _generate_inverse_tfidf(inverted_index: Dict[str, Dict[str, int]], idf: Dict
     return inv_tfidf
 
 
-def _write_inverse_tfidf():
+def write_inverse_tfidf():
     with open('inverted_index.json', 'r') as f:
         inverted_index = json.load(f)
     with open('idf.json', 'r') as f:
@@ -196,7 +214,7 @@ def _write_inverse_tfidf():
         json.dump(inv_tfidf, f)
 
 
-def _write_documents_topics():
+def write_documents_topics():
     document_topic_dictionary = {}
     j = 1
     for r in retrieve_all_relevant_reuters():
