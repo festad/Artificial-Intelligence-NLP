@@ -1,5 +1,5 @@
 '''
-This file is of extreme importante,
+This file is of extreme importance,
 it allows you to create the files used as resources
 from the classifiers:
 the suggestion is to open up a python console,
