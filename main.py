@@ -26,7 +26,8 @@ As a suggestion, it will be easier if the user
 focuses on Naive Bayes first,
 then on optimized cosine distance (for these first two, the file 'indexer.py' will be the
 most important one),
-then on
+then on cosine distance rocchio and neural network (for this two, all the vectors will
+be needed, and you'll have to look at 'encoder.py').
 
 
 Neural network will be automatically instantiated
