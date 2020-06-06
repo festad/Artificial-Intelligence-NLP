@@ -1,6 +1,6 @@
 '''
 This one manages the communication with
-reuters that written in in sgm format,
+reuters that are written in in sgm format,
 
 '''
 

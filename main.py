@@ -23,7 +23,7 @@ Attention: Cosine distance classifier provides two different possibilities:
     the second one is to use the optimized version of cosine distance,
     available in 'optimized_cosine_distance.py', it will use only tfidf encoding.
 As a suggestion, it will be easier if the user
-first focuses on Naive Bayes,
+focuses on Naive Bayes first,
 then on optimized cosine distance (for these first two, the file 'indexer.py' will be the
 most important one),
 then on

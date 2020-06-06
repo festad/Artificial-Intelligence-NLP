@@ -1,3 +1,8 @@
+'''
+This is NOT my own work, it all comes from the book
+'Make your own neural network'
+'''
+
 import numpy
 import scipy.special
 
