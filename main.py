@@ -27,6 +27,15 @@ first focuses on Naive Bayes,
 then on optimized cosine distance (for these first two, the file 'indexer.py' will be the
 most important one),
 then on
+
+
+Neural network will be automatically instantiated
+loading precomputed weights from mine training
+on the 7063 available files, using tfidf vectors,
+that is the only non source file that I'll attach
+because training a neural network is really time consuming,
+but of course the user can train it himself editing
+    'neuralnetwork_driver.py'
 '''
 
 from cosine_distance import document_query
