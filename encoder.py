@@ -1,5 +1,15 @@
 '''
-The function in this file assumes that you
+This file is needed if you want to use
+    Cosine distance classifier (NOT the optimized version)
+    Rocchio's classifier
+    Neural network
+It provides NO service for
+    Naive Bayes classifier
+    Optimized cosine distance classifier,
+for these two you'll have to look inside 'indexer.py',
+which is actually needed to use this file as well.
+
+The functions in this file assumes that you
 already have the files:
     dictionary.json
     idf.json
@@ -15,6 +25,20 @@ If you don't have them, use immediately
     'indexer.py'
 with which you can create these and other
 important files for other classifiers.
+
+Cosine distance, Rocchio and Neural network use vectors,
+these vectors are embeddings of the documents,
+and here you will be able to use three different embedding styles:
+one hot, term frequency and tfidf.
+To create all the encoded vectors from the documents, use
+'write_encodings', it will put inside
+three different folder (one for each of the three different encoding types
+    one hot        encoding
+    term frequency encoding
+    tfidf          encoding),
+and inside each of these folders will be created 7063 (as the number of documents)
+.json files that are vectors useful to compute cosine distance (needed for Rocchio as well)
+and to train the neural network.
 '''
 
 import json
@@ -86,6 +110,7 @@ def load_tfidf_vector(tfidf, reut):
 
 def write_encodings():
     '''
+    Will take a while...
     Make sure to have the directory
         encoded/one_hot
         encoded/term_frequency

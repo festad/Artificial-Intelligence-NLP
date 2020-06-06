@@ -1,3 +1,18 @@
+'''
+This file assumes that you already have
+    dictionary.json
+    idf.json
+    and all the encoded vectors of all the documents.
+
+dictionary.json and idf.json can be created using 'indexer.py',
+if you already used Naive Bayes and the optimized cosine distance classifiers
+you should already have those two.
+
+To create all the vectors from the documents, you'll have to look
+into 'encoder.py'
+'''
+
+
 import json
 from typing import Dict, List
 

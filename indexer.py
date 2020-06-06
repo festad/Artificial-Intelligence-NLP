@@ -23,17 +23,15 @@ this file provides NO service for
         term frequency         encoding
         tfidf                  encoding),
     Neural network
-    Rocchio
-if you want to use Rocchio's classifier,
+if you want to use Rocchio's classifier or Cosine distance classifier,
 the needed files are not created by function inside
-this file, you'll have to look inside 'rocchio.py';
-the same goes for neural newtork classifier.
-It seems strange that this file provide no service
-for Cosine distance because actually some functions
+this file, you'll have to look inside 'encoder.py'.
+It seems strange that this file provides no service
+for Cosine distance because actually there are some functions
 that write idf and tfidf encodings, that's because
 they will be used (only) by optimized cosine distance classifier.
 The files to be used for cosine distance classifier are
-    'document_similarity_computer.py'
+    'cosine_distance.py'
     'encoder.py',
 the first one used the vectors written by the second one.
 '''

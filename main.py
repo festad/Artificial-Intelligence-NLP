@@ -1,4 +1,35 @@
-from document_similarity_computer import document_query
+'''
+Note: this script will never work unless you already
+prepared the necessary data that the different classifiers will use.
+To create them, you will first choose one of the four different features
+    (Naive Bayes
+    Cosine distance
+    Rocchio
+    Neural network)
+and then go to the related .py file and follow the instructions.
+These instructions will ask you to use function written inside the .py
+to write 'training' files that will be used by the classifiers.
+Those functions will almost everytime start with 'write_'.
+Attention: Cosine distance classifier provides two different possibilities:
+    the first one is to choose one of the 3 different embedding types (
+        one hot        encoding
+        term frequency encoding
+        tfidf          encoding),
+        it will be slower because it will compute
+        as many cosine products as the number of files
+        in the collection (in fact, every document
+        must have already been converted into a vector,
+        and you'll be able to do that using 'encoder.py')
+    the second one is to use the optimized version of cosine distance,
+    available in 'optimized_cosine_distance.py', it will use only tfidf encoding.
+As a suggestion, it will be easier if the user
+first focuses on Naive Bayes,
+then on optimized cosine distance (for these first two, the file 'indexer.py' will be the
+most important one),
+then on
+'''
+
+from cosine_distance import document_query
 from naive_bayes import naive_bayes
 from neuralnetwork_driver import instantiate_neural_network, query_neural_network
 from optimized_cosine_distance import optimized_improved_cosine_distance_tfidf

@@ -11,9 +11,10 @@ Note that the creation of this two files
 requires the previous creation of another,
 called 'inverted_index.json'.
 Also note that when this function
-is used inside 'revengai.py'
+is used inside 'main.py'
 it requires the file 'document_topic_dictionary.json'
-which is not conceptually related to this function
+which is not conceptually related to the
+optimized cosine distance function
 but it is needed to show which is the topic of
 the document whose tfidf vector is closest to the query.
 '''
