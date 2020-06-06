@@ -1,3 +1,10 @@
+'''
+This one deals with natuarl language preprocessing,
+it's likely that you'll face an error from nltk library
+that will ask you to donwnload WordNetLemmatizer and stopwords.
+'''
+
+
 from typing import List
 from nltk.tokenize import regexp_tokenize
 from nltk.stem import WordNetLemmatizer

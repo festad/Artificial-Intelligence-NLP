@@ -1,3 +1,8 @@
+'''
+This one handles the reuters collection
+which is given in .sgm format
+'''
+
 import json
 from typing import List, Set, Dict
 
