@@ -32,15 +32,18 @@ then on
 Neural network will be automatically instantiated
 loading precomputed weights from mine training
 on the 7063 available files, using tfidf vectors,
-that is the only non source file that I'll attach
-because training a neural network is really time consuming,
-but of course the user can train it himself editing
-    'neuralnetwork_driver.py'
+unfortunately I won't be able to attach
+the precomputed weights because the nodes of
+the output layer are only some MB,
+but the nodes of the hidden layer are more that 1 GB,
+only a few selected people will receive those weights :P
+of course the user can train it himself looking at 'neural_network_pilot.py'
+    'neural_network_pilot.py'
 '''
 
 from cosine_distance import document_query
 from naive_bayes import naive_bayes
-from neuralnetwork_driver import instantiate_neural_network, query_neural_network
+from neural_network_pilot import instantiate_neural_network, query_neural_network
 from optimized_cosine_distance import optimized_improved_cosine_distance_tfidf
 from reuter_handler import get_topics_from_list_ids, get_content_from_newid
 from rocchio import rocchio
