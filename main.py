@@ -62,6 +62,7 @@ def driver():
         print('2 -> Document ID')
         print('-> ')
         choice = int(input())
+
         if choice == 1:
             print('Insert a query:\n-> ')
             query = input()
@@ -82,6 +83,7 @@ def driver():
         print('4 -> Neural network')
         print('-> ')
         algorithm = int(input())
+
         if algorithm == 2 or algorithm == 3:
             print('1 -> hot encoding')
             print('2 -> term frequency')
@@ -102,7 +104,6 @@ def driver():
                 fast = True
 
         print("")
-
 
         if algorithm == 1:
             print("naive bayes -> " + str(get_first_n_instances_from_top_score(naive_bayes(query), top)))
