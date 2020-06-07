@@ -250,7 +250,7 @@ def write_inverse_tfidf():
         json.dump(inv_tfidf, f)
 
 
-def write_documents_topics():
+def write_document_topic_dictionary():
     document_topic_dictionary = {}
     j = 1
     for r in retrieve_all_relevant_reuters():

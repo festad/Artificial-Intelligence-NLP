@@ -10,6 +10,17 @@ you should already have those two.
 
 To create all the vectors from the documents, you'll have to look
 into 'encoder.py'
+
+Another resource that is not conceptually related
+    to cosine distance but it's used in
+        main.py
+    to get the topics from the closest documents to the query is
+        document_topic_dictionary.json,
+    that you can create using the function
+        write_document_topic_dictionary()
+    inside
+        indexer.py
+
 '''
 
 

@@ -5,6 +5,12 @@ already have all the vectors of all the documents
 for all the 3 different categories (one hot encoding, term frequency and tfidf).
 If you don't have them, you can create them using 'encoder.py',
 in particular the 'write_encodings' function.
+It is also assumed that you already have
+    document_topic_dictionary.json,
+you can create it using the function
+    write_document_topic_dictionary()
+inside
+    indexer.py
 Once you have all the vectors inside 'encoded/'
 use
     'write_encoded_vectors_for_all_topics'
