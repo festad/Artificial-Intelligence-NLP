@@ -30,11 +30,11 @@ def naive_bayes(query: str) -> Dict[str, float]:
     the word appears in the document.
     It is useful to have both of them because
     the nested for loop are easier to write then
-    if only one of them, in fact the first one contains
+    if only one of them was there, in fact the first one contains
     all the words ever found in the collection, whereas
     the second one shows for each topic only the words that
     appear in that topic, but his advantage is that it contains
-    all the topics in the set of keys
+    all the topics in the set of keys.
     Naive Bayes maximizes:
     P(c)*P(d|c),
     P(c) is in the 'topic_frequencies.json' file,
