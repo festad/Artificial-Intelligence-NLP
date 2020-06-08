@@ -28,7 +28,7 @@ from preprocesser import preprocessing
 
 def optimized_improved_cosine_distance_tfidf(qry: str) -> Dict[str, float]:
     '''
-    It does the same thing that it is done in 'document_similarity_computer',
+    It does the same thing that it is done in 'cosine_distance.py',
     but it does it faster, and only for tf_idf encoding.
     It is faster because instead of creating big arrays
     whose biggest part of elements is 0 (because the biggest part
